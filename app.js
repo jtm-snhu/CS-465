@@ -1,3 +1,7 @@
+//Jeffrey McGinty
+// CS-465
+// 2024
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,6 +12,7 @@ const hbs = require('hbs');
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
+var roomsRouter = require('./app_server/routes/rooms');
 var app = express();
 
 // view engine setup
@@ -26,6 +31,7 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/travel', travelRouter);
+app.use('/rooms', roomsRouter);
 
 //Moved from above so it is declared after other routesb
 app.use(express.static(path.join(__dirname, 'public')));
